@@ -1,8 +1,9 @@
 class RainDrop {
   constructor() {
     this.x = random(width)
-    this.y = random(-200, -100);
+    this.y = random(-700, -100);
     this.yspeed = random(4, 10)
+    this.lineLength = random(5, 30)
   }
   fall(){
     this.y = this.y + this.yspeed
@@ -13,7 +14,7 @@ class RainDrop {
 
   show(){
     stroke(138, 43, 226)
-    line(this.x, this.y, this.x, this.y + 10);
+    line(this.x, this.y, this.x, this.y + this.lineLength);
   }
 }
 
