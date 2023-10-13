@@ -2,10 +2,13 @@ class RainDrop {
   constructor() {
     this.x = random(width)
     this.y = random(-200, -100);
-    this.yspeed = 1
+    this.yspeed = random(4, 10)
   }
   fall(){
     this.y = this.y + this.yspeed
+    if(this.y > height) {
+      this.y = random(-200, -100);
+    }
   }
 
   show(){
@@ -14,7 +17,7 @@ class RainDrop {
   }
 }
 
-const raindrops = new Array(500)
+const raindrops = new Array(1000)
 
 function setup() {
   console.log(raindrops)
