@@ -21,17 +21,16 @@ class RainDrop {
 const raindrops = new Array(1000)
 
 function setup() {
-  console.log(raindrops)
-    createCanvas(window.innerWidth, window.innerHeight);
-    for (let i = 0; i < raindrops.length; i++) {
-      raindrops[i] = new RainDrop()
-    }
+  createCanvas(window.innerWidth, window.innerHeight);
+  for (let i = 0; i < raindrops.length; i++) {
+    raindrops[i] = new RainDrop()
+  }
 }
 
 function draw() {
-    background(230, 230, 250);
-    for (let i = 0; i < raindrops.length; i++) {
-      raindrops[i].fall()
-      raindrops[i].show()
-    }
+  background(230, 230, 250);
+  for (let i = 0; i < raindrops.length; i++) {
+    raindrops[i].fall()
+    raindrops[i].show()
+  }
 }
