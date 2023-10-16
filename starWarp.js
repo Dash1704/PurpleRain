@@ -3,7 +3,6 @@ class Star {
     this.x = random(-width, width);
     this.y = random(-height, height)
     this.travel = random(width);
-   // this.lineLength = random(5, 70)
   }
 
   warp() {
