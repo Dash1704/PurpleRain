@@ -3,12 +3,11 @@ class Star {
     this.x = random(-width, width);
     this.y = random(-height, height)
     this.travel = random(width);
-    this.radius = random(1, 4);
    // this.lineLength = random(5, 70)
   }
 
   warp() {
-    this.travel = this.travel - 10
+    this.travel = this.travel - 15
     if (this.travel < 1){
       this.travel = random(width);
     }
@@ -16,13 +15,15 @@ class Star {
 
   show() {
     stroke(255, 255, 255)
-    ellipse(this.moveX, this.moveY, this.radius);
+    this.ellipseGrow = map(this.travel, 0, width, 5, 0)
+    ellipse(this.moveX, this.moveY, this.ellipseGrow, this.ellipseGrow);
     this.moveX = map(this.x / this.travel, 0, 1, 0, width) 
     this.moveY = map(this.y / this.travel, 0, 1, 0, height) 
+
   }
 }
 
-const stars = new Array(2000)
+const stars = new Array(6000)
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
