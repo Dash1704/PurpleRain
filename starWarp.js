@@ -1,25 +1,28 @@
 class Star {
   constructor() {
-    this.x = random(width);
-    this.y = (-100, -10);
+    this.x = random(-width, width);
+    this.y = random(-height, height)
+    this.travel = random(width);
     this.radius = random(1, 4);
-    this.speed = random(1, 4)
-    this.lineLength = random(5, 30)
+   // this.lineLength = random(5, 70)
   }
-  fall() {
-    this.y = this.y + this.speed
-    if(this.y > height) {
-      this.y = random(-200, -100);
+
+  warp() {
+    this.travel = this.travel - 10
+    if (this.travel < 1){
+      this.travel = random(width);
     }
   }
+
   show() {
     stroke(255, 255, 255)
-    ellipse(this.x, this.y, this.radius * 2);
-    line(this.x, this.y, this.x, this.y + this.lineLength);
+    ellipse(this.moveX, this.moveY, this.radius);
+    this.moveX = map(this.x / this.travel, 0, 1, 0, width) 
+    this.moveY = map(this.y / this.travel, 0, 1, 0, height) 
   }
 }
 
-const stars = new Array(1000)
+const stars = new Array(2000)
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
@@ -29,9 +32,10 @@ function setup() {
 }
 
 function draw() {
-  background(0, 0, 0);
+  background(0);
+  translate(width / 2, height / 2)
   for (let i = 0; i < stars.length; i++) {
-    stars[i].fall()
+    stars[i].warp()
     stars[i].show()
   }
 }
