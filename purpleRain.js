@@ -5,14 +5,14 @@ class RainDrop {
     this.yspeed = random(4, 10)
     this.lineLength = random(5, 30)
   }
-  fall(){
+  fall() {
     this.y = this.y + this.yspeed
     if(this.y > height) {
       this.y = random(-200, -100);
     }
   }
 
-  show(){
+  show() {
     stroke(138, 43, 226)
     line(this.x, this.y, this.x, this.y + this.lineLength);
   }
